@@ -9,7 +9,7 @@ def scan_board(board):
     for i in range(N):
         for j in range(N):
             rows[i] += PLAYERS_VALUES[board[i][j]] # count rows
-            cols[j] += PLAYERS_VALUES[board[j][i]] # count columns
+            cols[i] += PLAYERS_VALUES[board[j][i]] # count columns
         
         # main diagonal
         diagonals[0] += PLAYERS_VALUES[board[i][i]]
