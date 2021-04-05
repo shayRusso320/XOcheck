@@ -1,4 +1,5 @@
 N = 3
+PLAYERS_VALUES = [0, 1, -1]
 
 def scan_board(board):
     rows = [0,0,0]
@@ -7,14 +8,14 @@ def scan_board(board):
     
     for i in range(N):
         for j in range(N):
-            rows[i] += board[i][j] if board[i][j] != 2 else -1 # count rows
-            cols[j] += board[j][i] if board[j][i] != 2 else -1 # count columns
+            rows[i] += PLAYERS_VALUES[board[i][j]] # count rows
+            cols[j] += PLAYERS_VALUES[board[j][i]] # count columns
         
         # main diagonal
-        diagonals[0] += board[i][i] if board[i][i] != 2 else -1 
+        diagonals[0] += PLAYERS_VALUES[board[i][i]]
         
         #secondary digonal
-        diagonals[1] += board[N-1-i][i] if board[N-1-i][i] != 2 else -1
+        diagonals[1] += PLAYERS_VALUES[board[N-1-i][i]]
     
     return rows + cols + diagonals
  
